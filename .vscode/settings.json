@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+  "css.remoteStyleSheets": [
+    "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  ],
+  "prettier.javascriptEnable": ["javascript", "javascriptreact"],
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true
+}

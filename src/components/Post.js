@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 
 class Post extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleUpVote = this.handleUpVote.bind(this);
+  }
+
+  handleUpVote() {
+    this.props.onVote(this.props.id);
+  }
+
   render() {
     return (
       <div className="column is-one-third is-offset-one-third">
@@ -45,6 +55,7 @@ class Post extends Component {
                     <a
                       className="tag is-light"
                       style={{ textDecoration: 'none' }}
+                      onClick={this.handleUpVote}
                     >
                       <i className="fa fa-thumbs-o-up" aria-hidden="true" />
                     </a>

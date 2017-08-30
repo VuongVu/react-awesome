@@ -6,13 +6,12 @@ import Post from './Post';
 
 class PostList extends Component {
   render() {
-    const post = Seed[0];
+    const posts = Seed.sort((a, b) => b.votes - a.votes);
+    const postsComponent = posts.map((post, idx) => (
+      <Post key={'Post-' + idx} {...post} />
+    ));
 
-    return (
-      <div>
-        <Post {...post} />
-      </div>
-    );
+    return <div>{postsComponent}</div>;
   }
 }
 

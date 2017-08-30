@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import Voting from './containers/Voting';
 
 import 'bulma/css/bulma.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 import registerServiceWorker from './registerServiceWorker';
 

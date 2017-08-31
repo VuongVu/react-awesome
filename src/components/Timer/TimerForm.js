@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 
 class TimerForm extends Component {
@@ -14,8 +16,16 @@ class TimerForm extends Component {
     this.setState({ project: e.target.value });
   };
 
+  handleSubmit = () => {
+    this.props.onFormSubmit({
+      id: this.props.id,
+      title: this.state.title,
+      project: this.state.project
+    });
+  };
+
   render() {
-    const submitText = this.props.title ? 'Update' : 'Create';
+    const submitText = this.props.id ? 'Update' : 'Create';
 
     return (
       <div className="column is-one-third is-offset-one-third">
@@ -48,13 +58,17 @@ class TimerForm extends Component {
           </div>
           <footer className="card-footer">
             <a
-              className={`card-footer-item button is-outlined ${this.state.title
+              className={`card-footer-item button is-outlined ${this.props.id
                 ? 'is-info'
                 : 'is-primary'}`}
+              onClick={this.handleSubmit}
             >
               {submitText}
             </a>
-            <a className="card-footer-item button is-outlined is-danger">
+            <a
+              className="card-footer-item button is-outlined is-danger"
+              onClick={this.props.onFormClose}
+            >
               Cancel
             </a>
           </footer>

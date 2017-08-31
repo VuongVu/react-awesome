@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 
-import Seed from '../seed';
+import Seed from '../../data/seed';
 
 import Post from './Post';
 

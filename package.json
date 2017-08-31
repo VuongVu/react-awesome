@@ -5,6 +5,7 @@
   "license": "MIT",
   "author": "Vuong Vu <vuongvu333@gmail.com>",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "bulma": "^0.5.1",
     "font-awesome": "^4.7.0",
     "react": "^15.6.1",

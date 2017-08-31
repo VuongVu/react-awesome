@@ -1,15 +1,15 @@
+// @flow
+
 import React, { Component } from 'react';
 
 class Post extends Component {
-  constructor(props) {
-    super(props);
+  handleUpVote = () => {
+    this.props.onUpVote(this.props.id);
+  };
 
-    this.handleUpVote = this.handleUpVote.bind(this);
-  }
-
-  handleUpVote() {
-    this.props.onVote(this.props.id);
-  }
+  handleDownVote = () => {
+    this.props.onDownVote(this.props.id);
+  };
 
   render() {
     return (
@@ -58,6 +58,13 @@ class Post extends Component {
                       onClick={this.handleUpVote}
                     >
                       <i className="fa fa-thumbs-o-up" aria-hidden="true" />
+                    </a>
+                    <a
+                      className="tag is-light"
+                      style={{ textDecoration: 'none' }}
+                      onClick={this.handleDownVote}
+                    >
+                      <i className="fa fa-thumbs-o-down" aria-hidden="true" />
                     </a>
                     <span className="tag is-info">{this.props.votes}</span>
                   </div>

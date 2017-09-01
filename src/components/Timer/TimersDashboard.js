@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import uuid from 'uuid';
 
 import client from '../../containers/Timers/client';
 import helpers from '../../helpers';
@@ -43,65 +42,80 @@ class TimersDashboard extends Component {
 
   createTimer = timer => {
     const t = helpers.newTimer(timer);
-    this.setState({
-      timers: this.state.timers.concat(t)
-    });
+
+    // this.setState({
+    //   timers: this.state.timers.concat(t)
+    // });
+
+    client.createTimer(t).then(this.loadTimersFromServer);
   };
 
   updateTimer = attrs => {
-    this.setState({
-      timers: this.state.timers.map(timer => {
-        if (timer.id === attrs.id) {
-          return Object.assign({}, timer, {
-            title: attrs.title,
-            project: attrs.project
-          });
-        } else {
-          return timer;
-        }
-      })
-    });
+    // this.setState({
+    //   timers: this.state.timers.map(timer => {
+    //     if (timer.id === attrs.id) {
+    //       return Object.assign({}, timer, {
+    //         title: attrs.title,
+    //         project: attrs.project
+    //       });
+    //     } else {
+    //       return timer;
+    //     }
+    //   })
+    // });
+
+    client.updateTimer(attrs).then(this.loadTimersFromServer);
   };
 
   removeTimer = timerId => {
-    this.setState({
-      timers: this.state.timers.filter(t => t.id !== timerId)
-    });
+    // this.setState({
+    //   timers: this.state.timers.filter(t => t.id !== timerId)
+    // });
+
+    client.deleteTimer(timerId).then(this.loadTimersFromServer);
   };
 
   startTimer = timerId => {
     const now = Date.now();
 
-    this.setState({
-      timers: this.state.timers.map(timer => {
-        if (timer.id === timerId) {
-          return Object.assign({}, timer, {
-            runningSince: now
-          });
-        } else {
-          return timer;
-        }
-      })
-    });
+    // this.setState({
+    //   timers: this.state.timers.map(timer => {
+    //     if (timer.id === timerId) {
+    //       return Object.assign({}, timer, {
+    //         runningSince: now
+    //       });
+    //     } else {
+    //       return timer;
+    //     }
+    //   })
+    // });
+
+    client
+      .startTimer({ id: timerId, start: now })
+      .then(this.loadTimersFromServer);
   };
 
   stopTimer = timerId => {
     const now = Date.now();
 
-    this.setState({
-      timers: this.state.timers.map(timer => {
-        if (timer.id === timerId) {
-          const lastElapsed = now - timer.runningSince;
+    // this.setState({
+    //   timers: this.state.timers.map(timer => {
+    //     if (timer.id === timerId) {
+    //       const lastElapsed = now - timer.runningSince;
 
-          return Object.assign({}, timer, {
-            elapsed: timer.elapsed + lastElapsed,
-            runningSince: null
-          });
-        } else {
-          return timer;
-        }
-      })
-    });
+    //       return Object.assign({}, timer, {
+    //         elapsed: timer.elapsed + lastElapsed,
+    //         runningSince: null
+    //       });
+    //     } else {
+    //       return timer;
+    //     }
+    //   })
+    // });
+
+    client
+      .stopTimer({ id: timerId, stop: now })
+      .then(this.loadTimersFromServer);
   };
 
   render() {

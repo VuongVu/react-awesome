@@ -6,11 +6,11 @@ const path = require('path');
 
 const app = express();
 
-const DATA_FILE = path.join(__dirname, 'src', 'data', 'timer.json');
+const DATA_FILE = path.join(__dirname, 'timer.json');
 
 app.set('port', process.env.PORT || 3000);
 
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

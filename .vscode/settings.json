@@ -7,5 +7,6 @@
   ],
   "prettier.javascriptEnable": ["javascript", "javascriptreact"],
   "editor.formatOnSave": true,
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+  "prettier.eslintIntegration": true
 }

@@ -2,11 +2,10 @@
   "files.associations": {
     "*.js": "javascriptreact"
   },
-  "css.remoteStyleSheets": [
-    "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.cs"
+  "prettier.javascriptEnable": [
+    "javascript",
+    "javascriptreact"
   ],
-  "prettier.javascriptEnable": ["javascript", "javascriptreact"],
-  "editor.formatOnSave": true,
   "prettier.singleQuote": true,
-  "prettier.eslintIntegration": true
+  "prettier.trailingComma": "es5"
 }

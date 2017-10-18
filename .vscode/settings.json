@@ -2,10 +2,15 @@
   "files.associations": {
     "*.js": "javascriptreact"
   },
+  "flow.useNPMPackagedFlow": true,
   "prettier.javascriptEnable": [
     "javascript",
     "javascriptreact"
   ],
+  "javascript.format.enable": false,
+  "javascript.validate.enable": false,
   "prettier.singleQuote": true,
-  "prettier.trailingComma": "es5"
+  "prettier.trailingComma": "all",
+  "prettier.eslintIntegration": true,
+  "prettier.semi": false
 }
